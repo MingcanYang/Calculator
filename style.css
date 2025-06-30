@@ -1,0 +1,58 @@
+/* 容器与网格 */
+#calculator {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  grid-gap: 10px;
+  padding: 20px;
+  background: #282c34;
+  border-radius: 6px;
+  width: max-content;
+  margin: 50px auto;
+}
+
+/* 显示屏 */
+#display {
+  grid-column: span 4;
+  background: #444;
+  color: #fff;
+  font-size: 2rem;
+  text-align: right;
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+/* 按钮样式 */
+button {
+  height: 60px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #a6bbc1;
+  color: #000;
+}
+
+/* 在文件末尾或者按钮原样式后加上： */
+#clear {
+  background: #e74c3c;  /* 红色背景 */
+  color: #fff;          /* 白色字体，保证对比度 */
+}
+
+#equals {
+    background: #0056b1;  /* 绿色背景 */
+    color: #fff;          /* 白色字体，保证对比度 */
+}
+
+button:hover {
+  background: #4e6574; /* 鼠标悬停时的颜色 */
+}
+
+button:active {
+  background: #21a1f1;
+}
+
+/* Clear 按钮跨两列 */
+#clear {
+  grid-column: span 2;
+}
