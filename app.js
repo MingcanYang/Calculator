@@ -28,7 +28,7 @@ function Calculator() {
       setExpr(num);
       setDisplay(num);
     } else {
-      // 防止多个前导零
+      // Prevent multiple leading zeros
       if (display === '0' || lastType === 'operator') {
         setDisplay(num);
       } else {
@@ -46,7 +46,7 @@ function Calculator() {
       setLastType('decimal');
       return;
     }
-    // 当前数字段已有小数点时跳过
+    // Skip when the current digital segment already has a decimal point
     const parts = display.split(/[\+\-\*\/]/).pop();
     if (parts.includes('.')) return;
 
@@ -62,14 +62,14 @@ function Calculator() {
 
   const handleOperator = op => {
   if (lastType === 'equals') {
-    // = 后直接继续新的表达式
+    // = Then directly continue with the new expression
     setExpr(display + op);
   } else if (lastType === 'operator') {
     if (op === '-') {
-      // 连续 operator + '-' 时，作为负号直接附加
+      // When the operator + '-' is continuous, it is directly added as a negative sign
       setExpr(prev => prev + op);
     } else {
-      // 连续输入多个 operator（含负号）时，一次性替换成最新的 op
+      // When entering multiple operators (including negative numbers) continuously, replace them with the latest op at once
       setExpr(prev => prev.replace(/[\+\-\*\/]+$/, op));
     }
   } else {
@@ -87,14 +87,14 @@ function Calculator() {
 
   const handleEquals = () => {
     let formula = expr;
-    // 如果以运算符结尾，去掉它
+    // If it ends with an operator, remove it
     if (/[\+\-\*\/]$/.test(formula)) {
       formula = formula.slice(0, -1);
     }
     try {
-      // 用 eval 进行公式逻辑计算
+      // Use eval for formula logic calculation
       let result = eval(formula);
-      // 保留至多 6 位小数，去掉多余零
+      // Keep up to 6 decimal places and remove excess zeros
       result = parseFloat(result.toFixed(6)).toString();
       setDisplay(result);
       setExpr(result);
@@ -111,7 +111,7 @@ function Calculator() {
     if (label === '.')                return handleDecimal();
     if (label === 'AC')               return handleClear();
     if (label === '=')                return handleEquals();
-    // 其余视为运算符
+    // The rest is regarded as an operator
     return handleOperator(label);
   };
 
