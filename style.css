@@ -1,4 +1,4 @@
-/* 容器与网格 */
+/* Containers and grids */
 #calculator {
   display: grid;
   grid-template-columns: repeat(4, 80px);
@@ -10,7 +10,7 @@
   margin: 50px auto;
 }
 
-/* 显示屏 */
+/* Display screen */
 #display {
   grid-column: span 4;
   background: #444;
@@ -22,7 +22,7 @@
   overflow-x: auto;
 }
 
-/* 按钮样式 */
+/* Button style */
 button {
   height: 60px;
   font-size: 1.2rem;
@@ -33,26 +33,27 @@ button {
   color: #000;
 }
 
-/* 在文件末尾或者按钮原样式后加上： */
+/* Clear button style */
 #clear {
-  background: #e74c3c;  /* 红色背景 */
-  color: #fff;          /* 白色字体，保证对比度 */
+  background: #e74c3c;  
+  color: #fff;          
 }
 
+/* Equals button style */
 #equals {
-    background: #0056b1;  /* 绿色背景 */
-    color: #fff;          /* 白色字体，保证对比度 */
+    background: #0056b1;  
+    color: #fff;          
 }
 
 button:hover {
-  background: #4e6574; /* 鼠标悬停时的颜色 */
+  background: #4e6574; /* The colour when the mouse hovers */
 }
 
 button:active {
   background: #21a1f1;
 }
 
-/* Clear 按钮跨两列 */
+/* Clear Buttons span two columns. */
 #clear {
   grid-column: span 2;
 }
